@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import ViteExpress from 'vite-express';
+import handlerFunctions from './controller.js';
 
 const app = express();
 
@@ -16,11 +17,11 @@ const { getPets, addPet, deletePet, updatePet } = handlerFunctions
 
 app.get('/petCards', getPets)
 
-app.post('/addPet', addPet)
+app.post('/addPetCard', addPet)
 
-app.delete('/removePet', deletePet)
+app.delete('/removePetCard/:id', deletePet)
 
-app.put('/editPet/:id', updatePet)
+app.put('/editPetCard/:id', updatePet)
 
 
 ViteExpress.listen(app, port, () => console.log(`Listening on port ${port}. Go to http://localhost:${port}`))
