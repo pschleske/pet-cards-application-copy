@@ -3,6 +3,7 @@ import Card from "./Card"
 import { useState } from "react"
 import axios from "axios"
 import AddButton from "./AddButton"
+import "./CardsContainer.css"
 
 
 export default function CardsContainer({ initialCardList }) {
@@ -43,15 +44,18 @@ export default function CardsContainer({ initialCardList }) {
     })
 
     return (
-        <div>
-            <div>
+        <div className="cards-container">
+            <div className="cards-header">
                 <CardHeader />
             </div>
-            <div>
+            <div className="card-list">
                 {cards}
                 {/* <Card /> */}
             </div>
-            <AddButton addClick={addCard} />
+            <AddButton
+                addClick={addCard}
+                className="add-button"
+            />
         </div>
     )
 }

@@ -3,25 +3,25 @@ let PET_DATA = [
         id: 1,
         name: 'Arlo',
         description: 'Loves to herd other dogs!',
-        imgUrl: '/public/img/IMG_5208.jpg'
+        imgUrl: '/img/IMG_5208.jpg'
     },
     {
         id: 2,
         name: 'Paul',
         description: 'Aussie Poodle mix',
-        imgUrl: '/public/img/IMG_5208.jpg'
+        imgUrl: '/img/IMG_5208.jpg'
     },
     {
         id: 3,
         name: 'Hazel',
         description: '',
-        imgUrl: '/public/img/IMG_5208.jpg'
+        imgUrl: '/img/IMG_5024.jpg'
     },
     {
         id: 4,
         name: 'Luca',
         description: 'Giant puppy with zero chill',
-        imgUrl: '/public/img/IMG_5208.jpg'
+        imgUrl: '/img/IMG_5208.jpg'
     }
 ];
 
