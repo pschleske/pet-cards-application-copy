@@ -12,8 +12,8 @@ export default function CardsContainer({ initialCardList }) {
 
     const addCard = async () => {
         let { data } = await axios.post("/addPetCard", {
-            name: "Pet's name here",
-            imgUrl: "",
+            name: "Pet's name",
+            imgUrl: "insert url",
             description: "Type here!"
         })
 
