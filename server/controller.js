@@ -3,18 +3,18 @@ let PET_DATA = [
         id: 1,
         name: 'Arlo',
         description: 'Loves to herd other dogs!',
-        imgUrl: '/img/IMG_5208.jpg'
+        imgUrl: '/img/IMG_6276.jpg'
     },
     {
         id: 2,
-        name: 'Paul',
-        description: 'Aussie Poodle mix',
-        imgUrl: '/img/IMG_5208.jpg'
+        name: 'Nico',
+        description: 'Eat, sleep, repeat',
+        imgUrl: '/img/IMG_6274.jpg'
     },
     {
         id: 3,
         name: 'Hazel',
-        description: '',
+        description: 'Prefers to play with hoomans',
         imgUrl: '/img/IMG_5024.jpg'
     },
     {
@@ -33,11 +33,11 @@ const handlerFunctions = {
     },
 
     addPet: (req, res) => {
-        const { description } = req.body
+        const { name, imgUrl, description } = req.body
         const newObj = {
             id: globalId,
-            name: "name",
-            imgUrl: "imgUrl",
+            name: name,
+            imgUrl: imgUrl,
             description: description
         }
         PET_DATA.push(newObj)
@@ -57,17 +57,20 @@ const handlerFunctions = {
 
     updatePet: (req, res) => {
         const { id } = req.params
-        const { description, imgUrl } = req.body
+        const { name, imgUrl, description } = req.body
         // console.log(description)
         // console.log(typeof(id))
+        // console.log(typeof (imgUrl))
+        // console.log(req.body)
 
         const petToEdit = PET_DATA.find(element => element.id === +id);
 
         // console.log(petToEdit)
-
-        petToEdit.description = description !== undefined ? description : petToEdit.description;
+        petToEdit.name = name !== undefined ? name : petToEdit.name;
         petToEdit.imgUrl = imgUrl !== undefined ? imgUrl : petToEdit.imgUrl;
+        petToEdit.description = description !== undefined ? description : petToEdit.description;
 
+        // console.log(petToEdit)
         res.send(petToEdit);
 
         // const petIndex = PET_DATA.findIndex(pet => pet.id === id)

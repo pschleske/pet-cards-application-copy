@@ -12,8 +12,8 @@ export default function CardsContainer({ initialCardList }) {
 
     const addCard = async () => {
         let { data } = await axios.post("/addPetCard", {
-            name: "",
-            imgUrl: "Enter your image url",
+            name: "Pet's name here",
+            imgUrl: "",
             description: "Type here!"
         })
 
@@ -33,13 +33,15 @@ export default function CardsContainer({ initialCardList }) {
         const { id, name, imgUrl, description } = cardItem
 
         return (
-            <Card
-                key={id}
-                id={id}
-                initialCardData={{ nama: name, imgUrl: imgUrl, description }}
-                initialIsEditing={false}
-                deleteFunc={() => deleteCard(id)}
-            />
+            <div className="card" key={id}>
+                <Card
+                    // key={id}
+                    id={id}
+                    initialCardData={{ name, imgUrl, description }}
+                    initialIsEditing={false}
+                    deleteFunc={() => deleteCard(id)}
+                />
+            </div>
         )
     })
 
@@ -49,12 +51,13 @@ export default function CardsContainer({ initialCardList }) {
                 <CardHeader />
             </div>
             <div className="card-list">
+
                 {cards}
+
                 {/* <Card /> */}
             </div>
             <AddButton
                 addClick={addCard}
-                className="add-button"
             />
         </div>
     )

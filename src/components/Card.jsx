@@ -10,7 +10,7 @@ export default function Card({ initialCardData, initialIsEditing, deleteFunc, id
 
     const [editMode, setEditMode] = useState(initialIsEditing)
     const [name, setName] = useState(initialCardData.name)
-    const [img, setImage] = useState(initialCardData.imgUrl)
+    const [imgUrl, setImgUrl] = useState(initialCardData.imgUrl)
     const [description, setDescription] = useState(initialCardData.description)
 
     const changeEditMode = () => setEditMode(true)
@@ -18,10 +18,12 @@ export default function Card({ initialCardData, initialIsEditing, deleteFunc, id
     const changeNormalMode = async () => {
         let bodyObject = {
             name,
-            img,
+            imgUrl,
             description
         }
+        // console.log(bodyObject);
         const { data } = await axios.put(`/editPetCard/${id}`, bodyObject)
+
 
         if (!data.error) {
             setEditMode(false)
@@ -41,8 +43,8 @@ export default function Card({ initialCardData, initialIsEditing, deleteFunc, id
             {/* <img src="" alt="" /> */}
             < CardImage
                 isEditing={editMode}
-                value={img}
-                onValueChange={setImage}
+                value={imgUrl}
+                onValueChange={setImgUrl}
             />
             {/* <p>description</p> */}
             < Description
