@@ -9,6 +9,30 @@ import "./CardsContainer.css"
 export default function CardsContainer({ initialCardList }) {
 
     const [currentList, setCurrentList] = useState(initialCardList)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('/auth', { email, password });
+
+            if (response.data.success) {
+                setIsLoggedIn(true);
+            } else {
+                console.log('Login failed');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
+    };
+
+    const handleLogout = async () => {
+        try {
+            await axios.post('/logout');
+            setIsLoggedIn(false);
+        } catch (error) {
+            console.error('Error during logout:', error);
+        }
+    };
 
     const addCard = async () => {
         let { data } = await axios.post("/addPetCard", {
@@ -47,8 +71,11 @@ export default function CardsContainer({ initialCardList }) {
 
     return (
         <div className="cards-container">
-            <div className="cards-header">
-                <CardHeader />
+            <div className="card-header">
+                <CardHeader
+                    onLogin={handleLogin}
+                    onLogout={handleLogout}
+                    isLoggedIn={isLoggedIn} />
             </div>
             <div className="card-list">
 
@@ -62,3 +89,5 @@ export default function CardsContainer({ initialCardList }) {
         </div>
     )
 }
+
+// className = "cards-header"

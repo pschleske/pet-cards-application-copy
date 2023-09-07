@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Arlo",
+        "imgUrl": "../public/img/IMG_5024",
+        "description": "Loves to herd other dogs!"
+    },
+    {
+        "name": "Nico",
+        "imgUrl": "/img/IMG_5024",
+        "description": "Eat, sleep, repeat"
+    },
+    {
+        "name": "Hazel",
+        "imgUrl": "/img/IMG_5024",
+        "description": "Prefers to play with hoomans"
+    },
+    {
+        "name": "Luca",
+        "imgUrl": "/img/IMG_5024",
+        "description": "Giant puppy with zero chill"
+    }
+]
